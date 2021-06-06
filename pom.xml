@@ -30,40 +30,17 @@
     </pluginManagement>
     <plugins>
       <plugin>
-        <!-- Build an executable JAR -->
- <project>
-  ...
-  <packaging>war</packaging>
-  ...
-  <build>
-    ...
-    <plugins>
-      ...
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.0-beta-1</version>
-        <executions>
-          <execution>
-            <id>tomcat-run</id>
-            <goals>
-              <goal>exec-war-only</goal>
-            </goals>
-            <phase>package</phase>
-            <configuration>
-              <path>foo</path>
-              <!-- optional only if you want to use a preconfigured server.xml file -->
-              <serverXml>src/main/tomcatconf/server.xml</serverXml>
-              <!-- optional values which can be configurable -->
-              <attachArtifactClassifier>default value is exec-war but you can customize</attachArtifactClassifier>
-              <attachArtifactClassifierType>default value is jar</attachArtifactClassifierType>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      ...
-    </plugins>
-    ...
-  </build>
-  ...
-</project>
+        <!-- Build an executable WAR -->
+ <plugin>
+    <artifactId>maven-war-plugin</artifactId>
+    <configuration>
+        <attachClasses>true</attachClasses>
+        <webXml>target/web.xml</webXml>
+        <webResources>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <filtering>true</filtering>
+            </resource>
+        </webResources>
+    </configuration>
+</plugin>
