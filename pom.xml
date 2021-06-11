@@ -15,11 +15,6 @@
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-<dependency>
-    <groupId>org.sonarsource.scanner.maven</groupId>
-    <artifactId>sonar-maven-plugin</artifactId>
-    <version>3.9.0.2155</version>
-</dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,11 +27,6 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
         </plugin>
-        <plugin>
-  <groupId>org.sonarsource.scanner.maven</groupId>
-  <artifactId>sonar-maven-plugin</artifactId>
-  <version>3.2</version>
-</plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -48,6 +38,11 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
   </configuration>
      </plugin>
+      <plugin>
+  <groupId>org.sonarsource.scanner.maven</groupId>
+  <artifactId>sonar-maven-plugin</artifactId>
+  <version>3.2</version>
+</plugin>
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
